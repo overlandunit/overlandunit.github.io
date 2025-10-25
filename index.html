@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkyVista Helicopter Tours</title>
+  <meta name="description" content="Scenic helicopter tours over canyons, lakes, and deserts. Book sunrise, day, or sunset flights." />
+  <meta name="theme-color" content="#0e1a28" />
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="preload" href="/styles.css" as="style" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta property="og:title" content="SkyVista Helicopter Tours" />
+  <meta property="og:description" content="Fly above the world's most iconic landscapes. Flexible times, safe and modern fleet." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og.jpg" />
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="SkyVista home">SkyVista</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav()">☰</button>
+      <nav aria-label="Primary">
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#fleet">Fleet</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact" class="btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero with Booking CTA -->
+  <section class="hero" role="banner">
+    <div class="hero-media">
+      <!-- Optional: replace with your mp4 in /assets/hero.mp4 -->
+      <video class="hero-video" autoplay muted loop playsinline poster="/assets/hero.jpg">
+        <source src="/assets/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-inner">
+      <h1>See the Canyon from Above</h1>
+      <p>Sunrise, daytime, and sunset flights departing daily. Safety-first pilots, panoramic windows, unforgettable views.</p>
+
+      <form class="booking" onsubmit="return book(event)" aria-labelledby="book-heading">
+        <h2 id="book-heading" class="sr-only">Book a tour</h2>
+        <label>
+          <span>Departure</span>
+          <select name="location" required>
+            <option value="">Select</option>
+            <option>Grand Canyon South Rim</option>
+            <option>Grand Canyon West</option>
+            <option>Las Vegas</option>
+            <option>Page / Lake Powell</option>
+          </select>
+        </label>
+        <label>
+          <span>Date</span>
+          <input type="date" name="date" required />
+        </label>
+        <label>
+          <span>Passengers</span>
+          <input type="number" min="1" max="12" value="2" name="pax" required />
+        </label>
+        <button type="submit" class="btn btn-primary">Find Tours</button>
+      </form>
+
+      <p class="muted">Prefer to call? <a href="#contact">Contact us</a> for help.</p>
+    </div>
+  </section>
+
+  <!-- Highlights / USPs -->
+  <section class="section highlights">
+    <div class="container grid-4">
+      <div class="hi"><strong>Safety First</strong><span>Modern fleet, certified pilots</span></div>
+      <div class="hi"><strong>Guaranteed Window Seats</strong><span>Panoramic viewing</span></div>
+      <div class="hi"><strong>Free Shuttle</strong><span>Hotel pickup on select routes</span></div>
+      <div class="hi"><strong>Flexible Times</strong><span>Sunrise to sunset</span></div>
+    </div>
+  </section>
+
+  <!-- Tours Grid -->
+  <section id="tours" class="section">
+    <div class="container">
+      <h2>Featured Tours</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="/assets/tour-1.jpg" alt="Helicopter over canyon at sunrise" />
+          <div class="card-body">
+            <h3>Sunrise Canyon Flight</h3>
+            <p>Beat the crowds and watch the canyon glow from the first light.</p>
+            <div class="meta"><span>45–50 min</span><span>From $329</span></div>
+            <button class="btn btn-secondary" onclick="openModal('Sunrise Canyon Flight')">View details</button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="/assets/tour-2.jpg" alt="Helicopter landing near river" />
+          <div class="card-body">
+            <h3>River Landing Picnic</h3>
+            <p>Land near the river for a light picnic and photo time.</p>
+            <div class="meta"><span>90 min</span><span>From $489</span></div>
+            <button class="btn btn-secondary" onclick="openModal('River Landing Picnic')">View details</button>
+          </div>
+        </article>
+        <article class="card">
+          <img src="/assets/tour-3.jpg" alt="City skyline with helicopter at night" />
+          <div class="card-body">
+            <h3>Vegas Night Lights</h3>
+            <p>Soar above the Strip and neon skyline after dark.</p>
+            <div class="meta"><span>15–20 min</span><span>From $129</span></div>
+            <button class="btn btn-secondary" onclick="openModal('Vegas Night Lights')">View details</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fleet / Amenities -->
+  <section id="fleet" class="section alt">
+    <div class="container fleet">
+      <div>
+        <h2>Our Fleet</h2>
+        <p>Comfortable, quiet, and designed for sightseeing. Every seat offers stunning views through wrap‑around windows.</p>
+        <ul class="check">
+          <li>Whisper‑quiet rotors reduce cabin noise</li>
+          <li>Climate control for desert summers and winter mornings</li>
+          <li>BOSE® headsets with pilot narration</li>
+          <li>On‑board photo guidance and safety briefings</li>
+        </ul>
+      </div>
+      <img class="fleet-img" src="/assets/fleet.jpg" alt="Interior of sightseeing helicopter" />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What should I bring?</summary>
+        <p>Government‑issued ID, comfortable shoes, layered clothing, and a camera or phone.</p>
+      </details>
+      <details>
+        <summary>Is there a weight limit?</summary>
+        <p>Passenger and bag weight limits apply for safety; we’ll confirm during booking.</p>
+      </details>
+      <details>
+        <summary>Can flights be canceled?</summary>
+        <p>Flights may be delayed or rescheduled due to weather or air‑traffic advisories.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Reviews Carousel (simple) -->
+  <section class="section alt">
+    <div class="container">
+      <h2>Guest Reviews</h2>
+      <div class="carousel" aria-live="polite">
+        <blockquote class="slide" data-active>
+          <p>“Hands‑down the best way to see the canyon. Professional and breathtaking.”</p>
+          <cite>— Taylor, USA</cite>
+        </blockquote>
+        <blockquote class="slide">
+          <p>“Smooth ride, amazing views, and our pilot was fantastic.”</p>
+          <cite>— Minji, Korea</cite>
+        </blockquote>
+        <blockquote class="slide">
+          <p>“Worth every penny. I’d do the sunset flight again.”</p>
+          <cite>— Luca, Italy</cite>
+        </blockquote>
+        <div class="dots" role="tablist">
+          <button class="dot" aria-label="Slide 1" aria-selected="true" onclick="goSlide(0)"></button>
+          <button class="dot" aria-label="Slide 2" onclick="goSlide(1)"></button>
+          <button class="dot" aria-label="Slide 3" onclick="goSlide(2)"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / Contact CTA -->
+  <section id="contact" class="section newsletter">
+    <div class="container newswrap">
+      <div>
+        <h2>Get flight deals & tips</h2>
+        <p>Monthly emails. No spam, just scenic stuff.</p>
+        <form class="inline-form" onsubmit="return subscribe(event)">
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="you@example.com" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+      <div class="contact-box">
+        <h3>Call or chat</h3>
+        <p><strong>+1 (000) 555‑0199</strong><br/>Daily 7:00–21:00 local</p>
+        <a class="btn" href="mailto:booking@skyvista.tours">booking@skyvista.tours</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container foot">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#fleet">Fleet</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <p>© <span id="year"></span> SkyVista Helicopter Tours. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <dialog id="modal" class="modal">
+    <article class="modal-card">
+      <button class="modal-close" aria-label="Close" onclick="closeModal()">✕</button>
+      <h3 id="modal-title">Tour</h3>
+      <p id="modal-body">Detailed itinerary, age/weight policies, hotel pickup info, and what to expect.</p>
+      <form class="modal-actions" onsubmit="return bookNow(event)">
+        <input type="hidden" name="tour" id="modal-tour" />
+        <button class="btn btn-secondary" type="button" onclick="closeModal()">Close</button>
+        <button class="btn btn-primary" type="submit">Book this tour</button>
+      </form>
+    </article>
+  </dialog>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
